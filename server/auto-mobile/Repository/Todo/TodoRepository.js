@@ -9,13 +9,14 @@ module.exports = {
 
     allTodos: function(req, res) {
         console.log('hit on the todos function...');
-        let cityRef = db.collection('todos').doc('todo_1');
-        cityRef.get().then(doc => {
+        db.collection('todos').get().then(doc => {
             if (!doc.exists) {
-                res.send('No such document!');
+                return res.send('No such document!');
             } else {
-                res.send(doc.data());
+                return res.send(doc.data());
             }
+        }).catch((err) => {
+            return err;
         })
     }
 }
