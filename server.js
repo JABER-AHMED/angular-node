@@ -1,12 +1,10 @@
 const express = require('express')
 var app = express();
 
-const routes = require('./server/auto-mobile/Routes/api'); // need to be hit from here
-app.use(routes);
-
-
 const port = process.env.PORT || 3000;
 
+const routes = require('./server/auto-mobile/Routes/api'); // need to be hit from here
+app.use(routes);
 
 app.listen(port, () => {
 
